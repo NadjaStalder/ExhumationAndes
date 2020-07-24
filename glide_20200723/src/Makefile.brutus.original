@@ -1,0 +1,20 @@
+
+#LIBPATH = /Library/Frameworks/Intel_MKL.framework/Versions/10.0.3.020/lib/em64t
+#LIBPATH = /cluster/apps/intel/mkl/10.1.1.019/lib/em64t
+
+LIBS = \
+-mkl
+#-i-dynamic -lmkl_solver_lp64 -lmkl_intel_lp64 \
+-lmkl_intel_thread -lmkl_core -lguide -lpthread -lhdf5
+
+LIB2 = \
+-limf -lm \
+-L$(LIBPATH) \
+-lguide \
+-lmkl_intel_lp64 -lmkl_intel_thread -lmkl_lapack -lmkl_core -liom
+#lib makes a sequential mkl library 
+LIB = \
+-limf -lm \
+-L$(LIBPATH) \
+-lmkl_intel_lp64 -lmkl_sequential -lmkl_lapack -lmkl_core -liomp5 -lpthread
+

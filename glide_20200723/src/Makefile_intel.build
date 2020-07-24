@@ -1,0 +1,5 @@
+F90 = ifort
+CC = gcc
+FLAGS = -c -fopenmp -O
+INCLUDE = -mkl
+OPTIONS = 

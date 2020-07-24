@@ -1,0 +1,33 @@
+# Code_ExhumationratesAndes
+glide has been developed by Fox et al. (2014), and modified by Herman and Brandon (2015), to constrain exhumation rates from thermochronological data. Here you fiind the codes used to constrain the exhumation history of the Central Andes as published in "The relationships between tectonics, climate and exhumation in the Central Andes (18–36°S): Evidence from low-temperature thermochronology, Earth-Science Reviews. doi: https://doi.org/10.1016/j.earscirev.2020.103276 "
+
+Execute glide:
+adjust setting in input file glide.in
+run ./glide
+
+**** if you use intel instead of Xcode, replace the file "Makefile.build" in the src folder with the file "Makefile_intel.build". In the src folder, run: "make clean; make " to compile files. execute glide. ****
+
+
+Folders:
+data       : contains data file, grid points, DEM, positions of water divide, fault blocks, and control points
+RUN01      : Folder where results are saved. Need to be specified in the input file "glide.in".
+src        : codes to execute glide
+create_grid: grid defines where exhumation rate is computed. If a larger region than 18-36 °S; 72-65°W is targeted, the grid needs to be updated.
+
+Files:
+glide.in: input file.
+- Change here ėprior, G0, correlation length scale and other parameters.
+- To include fault blocks, use the data-file "data20200424_18-36_Blocks". also remove the suffix "_blocks" from files "grid_dummy_blocks.txt" and "control_id_blocks.txt" in the data folder
+
+
+Plotting:
+we used GMT-5.2.2 for plotting: https://github.com/GenericMappingTools/gmt
+
+in folder "RUN01"
+script.sh        : exhumation maps and reduced variances
+indiv_ttpath.sh  : extract time-exhumationrates paths at selected locations defined in control_id.xy
+misfit.sh        : predicted vs. observed ages
+hist.sh          : age difference between observed and predicted ages
+plotresiduals.sh : residuals of closure depth
+
+to plot modern modelled heat flow, run "plot_geothermal.sh" in folder "RUN01/stuff"
