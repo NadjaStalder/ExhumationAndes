@@ -24,7 +24,7 @@ Plotting:
 we use GMT-5.2.1 for plotting: https://github.com/GenericMappingTools/gmt
 
 in folder "RUN01"
-script.sh        : exhumation maps and reduced variances. You'll need to convert the file "DEM20190108.grd" to "DEM20190108.xyz" using GMT.
+script.sh        : exhumation maps and reduced variances. You'll need to convert the file "DEM20190108.grd" to "DEM20190108.xyz" using GMT with the command: grd2xyz DEM20190108.grd > DEM20190108.xyz   
 indiv_ttpath.sh  : extract time-exhumationrates paths at selected locations defined in control_id.xy
 misfit.sh        : predicted vs. observed ages
 hist.sh          : age difference between observed and predicted ages
